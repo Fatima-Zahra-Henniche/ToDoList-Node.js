@@ -1,0 +1,27 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title TodoList 
+        link(rel="stylesheet", href="/Style/welcmpage.css")
+    body 
+        main 
+        .wlcm  
+            h1 Welcome to your To-Do App 
+            br
+            h1 What do you want to do ?
+            br 
+            br
+            ul
+                .task 
+                    each task, index in todolist
+                        li
+                            = task
+                            form.edit-form(action=`/edit/${index}`, method='GET')
+                                button.edit-button(type='submit') Edit
+                            form.delete-form(action=`/delete/${index}`, method='POST')
+                                button.delete-button(type='submit') Delete
+            form(action='/add', method='POST')
+                input.add-input(type='text', name='task', placeholder='Enter a new task')
+                button.add-button(type='submit') Add Task 

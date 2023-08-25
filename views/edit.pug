@@ -1,0 +1,13 @@
+doctype html
+html
+  head
+    title Edit Task
+    link(rel="stylesheet", href="/Style/edit.css")
+  body
+    .update 
+      h1 Edit Task
+      br
+      .edit 
+        form(action=`/update/${index}`, method='POST' style='display: flex; flex-direction: column; align-items: center;')
+            input.update-input(type='text', name='updatedTask', value=taskToEdit style='margin-bottom: 10px;')
+            button(type='submit' style='padding: 5px;') Update Task
